@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Util : MonoBehaviour
 {
-   
+  
     public static float RemapRange(float oldValue, float oldMin, float oldMax, float newMin, float newMax)
     {
         float newValue = 0;

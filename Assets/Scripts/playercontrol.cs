@@ -7,7 +7,6 @@ public class playercontrol : MonoBehaviour
     public LayerMask ground;
     public float speed;
     public float jumpSpeed = 5;
-    public GameManager gm;
 
     float xMove;
     int jumpCount;
@@ -48,6 +47,7 @@ public class playercontrol : MonoBehaviour
     public bool GroundCheck()
     {
         Collider2D col = GetComponent<Collider2D>();
+
         bool onGround = Physics2D.Raycast(transform.position, Vector2.down, distanceCheckAmount, ground);
 
         return onGround;
