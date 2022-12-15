@@ -21,7 +21,7 @@ public class playercontrol : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        float n = Util.RemapRange(transform.position.x, -8, 8, 0, 1);
     
         float xMove = Input.GetAxis("Horizontal");
         
