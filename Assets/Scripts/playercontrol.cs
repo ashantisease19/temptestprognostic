@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class playercontrol : MonoBehaviour
 {
+    public LayerMask ground;
     public float speed;
     public float jumpSpeed = 5;
     public GameManager gm;
+
+    float xMove;
+    int jumpCount;
+    public float distanceCheckAmount = 0.5f;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +23,7 @@ public class playercontrol : MonoBehaviour
     void Update()
     {
 
+    
         float xMove = Input.GetAxis("Horizontal");
         
 
@@ -34,7 +40,16 @@ public class playercontrol : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             transform.Translate(0, jumpSpeed, 0);
+    
         }
+
+
+    }
+    public bool GroundCheck()
+    {
+        Collider2D col = GetComponent<Collider2D>();
+        bool onGround = Physics2D.Raycast(transform.position, Vector2.down, distanceCheckAmount, ground);
+
+        return onGround;
     }
 }
-    
